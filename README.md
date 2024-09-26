@@ -23,6 +23,7 @@ To run this application, make sure you have the following installed:
 - Java JDK 17
 - Gradle
 - IDE (such as IntelliJ IDEA or Eclipse)
+- mysql database server
 
 ## Getting Started
 
@@ -36,6 +37,9 @@ To run this application, make sure you have the following installed:
         Description: Retrieves eligible employees for bonuses based on the provided date.
         Parameters:
             date (format: MMM-dd-yyyy)
+
+### datebase queries
+CREATE DATABASE `employee_db`;
 ### Clone the Repository
 
 ```bash
