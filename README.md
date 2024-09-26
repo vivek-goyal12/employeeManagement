@@ -26,7 +26,11 @@ To run this application, make sure you have the following installed:
 - mysql database server
 
 ## Getting Started
-
+## if Java 17 and Gradle is not installed on your system 
+use these commands for linux (for other OS go to official websites)
+	java	- sudo apt-get install openjdk-17-jdk
+	gradle  - sudo apt-get install gradle
+  
 ## API Endpoints
 
     POST /employee/saveEmployeeDetails
