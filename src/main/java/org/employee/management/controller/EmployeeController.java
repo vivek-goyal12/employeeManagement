@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.apache.coyote.BadRequestException;
 import org.employee.management.beans.BonusEmployeeResponse;
 import org.employee.management.beans.BonusEmployeeResponse.CurrencyEmployees.EmployeeInfo;
 import org.employee.management.beans.EmployeeRequestBean;
@@ -21,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -36,6 +35,9 @@ public class EmployeeController {
 		String response;
 		try {
 			 response = employeeService.saveEmployeeDetails(employeeRequest.getEmployees());
+		} catch (BadRequestException e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(e.getMessage());
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.internalServerError().body("internal server error : "+ e.getMessage());

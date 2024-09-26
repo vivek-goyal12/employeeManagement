@@ -11,5 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
 	List<Employee> findByJoiningDateLessThanEqualAndExitDateGreaterThanEqual(LocalDate date, LocalDate date2);
+	
+	List<Employee> findByEmpNameAndDepartmentAndJoiningDate(String empName,String department, LocalDate joiningDate);
 
 }
